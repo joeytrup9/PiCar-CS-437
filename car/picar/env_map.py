@@ -1,6 +1,18 @@
+from ctypes import pointer
+from math import fabs
 import numpy as np
 from picar_4wd import *
 import time
+from enum import Enum
+from itertools import groupby
+
+class direction(Enum):
+    NORTH = 0
+    EAST = 90
+    SOUTH = 180
+    WEST = 240
+
+orient = direction.NORTH
 
 ANGLE_RANGE = 180
 STEP = 18
@@ -8,69 +20,77 @@ us_step = STEP
 current_angle = 0
 max_angle = ANGLE_RANGE/2
 min_angle = -ANGLE_RANGE/2
-
-
-    
-    
+ 
 N = 100
 pts = np.zeros((N,N))
 
-
 car_x = int(N/2) 
 car_y = int(N/2)
-scan_list = []
 
-def reading_distance(angle, dist):
-    x = dist * np.sin(angle)
-    y = dist * np.cos(angle)
+scan_list = []
+    
+
+def reading_distance(sensor_angle, dist):
+    x = dist * np.cos(sensor_angle)
+    y = dist * np.sin(sensor_angle)
     return x,y
 
-def offset_point(readingX,readingY,carX,carY, angle):
-    if angle >=0 :
-        outX = carX - readingX
-    else:
-        outX = carX + readingX
-    outY = (carY * 2) + readingY
-    return outX,outY
-
-def append_coords(angle,dist):
-    if dist == -2:
-        return False
+def offset_point(readingX,readingY):
     global car_x,car_y
-    readingX, readingY = reading_distance(angle,dist)
-    point_x,point_y = offset_point(readingX,readingY,car_x,car_y,angle)
+    if orient == direction.NORTH:
+        return car_x + readingX,car_y + readingY
+    if orient == direction.SOUTH:
+        return car_x + readingX,car_y - readingY
+    if orient == direction.EAST:
+        return car_x + readingY,car_y - readingX
+    if orient == direction.WEST:
+        return car_x - readingY,car_y - readingX
+    
+
+def append_coords(sensor_angle,dist):
+    if dist == -2:
+        scan_list.append(False)
+        return False
+    readingX, readingY = reading_distance(sensor_angle,dist)
+    point_x,point_y = offset_point(readingX,readingY)
     if not (point_x < 0 or point_x > N or point_y < 0 or point_y > N):
-        pts[point_x][point_y] = 1
+        scan_list.append((point_x,point_y))
     return point_x,point_y
+
+
+
+def make_line(x1,y1,x2,y2):
+    m =  (y1-y2) / (x1-x2)
+    for x in range(min(x1,x2)+1,max(x1,x2)):
+        y = m * (x - x1) + y1
+        pts[y][x] = 1
+
+
 
 def connect_coords():
     #for element in list create pairing for each adjacent element with reading != -2 
     global scan_list
-    tmp = []
-    grouping = []
-    for r in scan_list:
-        if (not r) and tmp != []:
-            grouping.append[tmp]
-            tmp = []
-        elif r != False:
-            tmp.append(r)
+    grouping = [list(g) for k, g in groupby(scan_list, lambda x: x != False) if k]
+    
     for g in grouping:
-        for i in range(len(g)):
+        if len(g) > 1:
+            for i in range(len(g)-1):
+                pts[g[i][1]][g[i][0]] = 1
+                pts[g[i+1][1]][g[i+1][0]] = 1
+                make_line(g[i][0],g[i][1],g[i+1][0],g[i+1][1])
+        else:
+            pts[g[0][1]][g[0][0]] = 1
+
+
             
-            pass
-
-        
-
-            
-
 
 def get_distance_at(angle):
     servo.set_angle(angle)
     time.sleep(0.04)
     distance = us.get_distance()
-    return angle,distance
+    return distance
 
-def scan_step(ref):
+def scan_step():
     global scan_list, current_angle, us_step
     current_angle += 18
     if current_angle >= max_angle:
@@ -79,9 +99,8 @@ def scan_step(ref):
     elif current_angle <= min_angle:
         current_angle = min_angle
         us_step = STEP
-    angle,dist = get_distance_at(current_angle)
-    pX,pY = append_coords(angle,dist)
-    scan_list.append((angle,dist))
+    dist = get_distance_at(current_angle)
+    append_coords(current_angle,dist)
     if current_angle == min_angle or current_angle == max_angle:
         if us_step < 0:
             # print("reverse")
@@ -93,5 +112,4 @@ def scan_step(ref):
     else:
         return False
 
-while 1:
-    pass
+
