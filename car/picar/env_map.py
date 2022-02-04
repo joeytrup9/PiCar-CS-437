@@ -32,7 +32,7 @@ scan_list = []
     
 
 def reading_distance(sensor_angle, dist):
-    x = int(dist * np.cos(sensor_angle))
+    x = int(dist * np.sin(sensor_angle))
     y = int(dist * np.sin(sensor_angle))
     return x,y
 
