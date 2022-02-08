@@ -163,5 +163,5 @@ class Car():
     def path_run_mode():
         pass
 
-#application = App()
-#application.runloop()
+application = App()
+application.runloop()
