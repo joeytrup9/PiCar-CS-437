@@ -1,0 +1,398 @@
+Detection(bounding_box=Rect(left=250, top=14, right=332, bottom=90), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+-4.078125
+Detection(bounding_box=Rect(left=255, top=1, right=345, bottom=77), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-2.8125
+Detection(bounding_box=Rect(left=248, top=0, right=346, bottom=63), categories=[Category(label='stop sign', score=0.56640625, index=12)])
+-3.234375
+Detection(bounding_box=Rect(left=245, top=0, right=346, bottom=63), categories=[Category(label='stop sign', score=0.54296875, index=12)])
+-3.4453125
+Detection(bounding_box=Rect(left=242, top=0, right=340, bottom=84), categories=[Category(label='stop sign', score=0.83984375, index=12)])
+-4.078125
+Detection(bounding_box=Rect(left=242, top=23, right=337, bottom=109), categories=[Category(label='stop sign', score=0.6484375, index=12)])
+-4.2890625
+Detection(bounding_box=Rect(left=252, top=65, right=337, bottom=143), categories=[Category(label='stop sign', score=0.3125, index=12)])
+-3.5859375
+Detection(bounding_box=Rect(left=38, top=188, right=115, bottom=266), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+-34.2421875
+Detection(bounding_box=Rect(left=16, top=185, right=95, bottom=266), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+-37.1953125
+Detection(bounding_box=Rect(left=20, top=161, right=97, bottom=239), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+-36.7734375
+Detection(bounding_box=Rect(left=505, top=43, right=592, bottom=127), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+32.1328125
+Detection(bounding_box=Rect(left=534, top=55, right=625, bottom=144), categories=[Category(label='stop sign', score=0.4765625, index=12)])
+36.4921875
+Detection(bounding_box=Rect(left=532, top=61, right=626, bottom=154), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+36.421875
+Detection(bounding_box=Rect(left=524, top=58, right=615, bottom=149), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+35.0859375
+Detection(bounding_box=Rect(left=512, top=59, right=600, bottom=145), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+33.1875
+Detection(bounding_box=Rect(left=506, top=66, right=595, bottom=153), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+32.4140625
+Detection(bounding_box=Rect(left=511, top=76, right=597, bottom=166), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+32.90625
+Detection(bounding_box=Rect(left=521, top=90, right=612, bottom=181), categories=[Category(label='stop sign', score=0.83984375, index=12)])
+34.6640625
+Detection(bounding_box=Rect(left=528, top=94, right=621, bottom=191), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+35.7890625
+Detection(bounding_box=Rect(left=529, top=97, right=623, bottom=194), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+36.0
+Detection(bounding_box=Rect(left=531, top=102, right=625, bottom=196), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+36.28125
+Detection(bounding_box=Rect(left=540, top=99, right=630, bottom=193), categories=[Category(label='stop sign', score=0.7734375, index=12)])
+37.265625
+Detection(bounding_box=Rect(left=550, top=93, right=633, bottom=190), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+38.1796875
+Detection(bounding_box=Rect(left=561, top=93, right=637, bottom=193), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+39.234375
+Detection(bounding_box=Rect(left=567, top=101, right=638, bottom=206), categories=[Category(label='stop sign', score=0.828125, index=12)])
+39.7265625
+Detection(bounding_box=Rect(left=187, top=109, right=283, bottom=198), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-11.953125
+Detection(bounding_box=Rect(left=195, top=108, right=291, bottom=199), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-10.828125
+Detection(bounding_box=Rect(left=209, top=108, right=301, bottom=199), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-9.140625
+Detection(bounding_box=Rect(left=207, top=116, right=299, bottom=209), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-9.421875
+Detection(bounding_box=Rect(left=203, top=122, right=294, bottom=215), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-10.0546875
+Detection(bounding_box=Rect(left=197, top=129, right=290, bottom=219), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-10.7578125
+Detection(bounding_box=Rect(left=192, top=132, right=282, bottom=220), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-11.671875
+Detection(bounding_box=Rect(left=187, top=133, right=276, bottom=226), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+-12.4453125
+Detection(bounding_box=Rect(left=180, top=132, right=270, bottom=219), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+-13.359375
+Detection(bounding_box=Rect(left=185, top=134, right=274, bottom=225), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+-12.7265625
+Detection(bounding_box=Rect(left=179, top=136, right=268, bottom=223), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-13.5703125
+Detection(bounding_box=Rect(left=162, top=140, right=250, bottom=223), categories=[Category(label='stop sign', score=0.6484375, index=12)])
+-16.03125
+Detection(bounding_box=Rect(left=129, top=168, right=206, bottom=239), categories=[Category(label='stop sign', score=0.3125, index=12)])
+-21.4453125
+Detection(bounding_box=Rect(left=148, top=177, right=211, bottom=239), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+-19.7578125
+Detection(bounding_box=Rect(left=376, top=199, right=439, bottom=262), categories=[Category(label='stop sign', score=0.45703125, index=12)])
+12.3046875
+Detection(bounding_box=Rect(left=369, top=199, right=434, bottom=262), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+11.4609375
+Detection(bounding_box=Rect(left=365, top=195, right=432, bottom=260), categories=[Category(label='stop sign', score=0.3125, index=12)])
+11.0390625
+Detection(bounding_box=Rect(left=362, top=198, right=427, bottom=263), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+10.4765625
+Detection(bounding_box=Rect(left=353, top=198, right=420, bottom=263), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+9.3515625
+Detection(bounding_box=Rect(left=351, top=202, right=417, bottom=265), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+9.0
+Detection(bounding_box=Rect(left=575, top=211, right=635, bottom=280), categories=[Category(label='stop sign', score=0.39453125, index=12)])
+40.078125
+Detection(bounding_box=Rect(left=575, top=215, right=636, bottom=286), categories=[Category(label='stop sign', score=0.54296875, index=12)])
+40.1484375
+Detection(bounding_box=Rect(left=590, top=215, right=637, bottom=289), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+41.2734375
+Detection(bounding_box=Rect(left=595, top=214, right=638, bottom=289), categories=[Category(label='stop sign', score=0.6484375, index=12)])
+41.6953125
+Detection(bounding_box=Rect(left=599, top=210, right=637, bottom=283), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+41.90625
+Detection(bounding_box=Rect(left=602, top=209, right=637, bottom=282), categories=[Category(label='stop sign', score=0.5, index=12)])
+42.1171875
+Detection(bounding_box=Rect(left=602, top=206, right=637, bottom=280), categories=[Category(label='stop sign', score=0.3515625, index=12)])
+42.1171875
+Detection(bounding_box=Rect(left=595, top=211, right=637, bottom=282), categories=[Category(label='stop sign', score=0.5234375, index=12)])
+41.625
+Detection(bounding_box=Rect(left=590, top=210, right=635, bottom=278), categories=[Category(label='stop sign', score=0.3125, index=12)])
+41.1328125
+Detection(bounding_box=Rect(left=587, top=205, right=636, bottom=274), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+40.9921875
+Detection(bounding_box=Rect(left=595, top=202, right=637, bottom=274), categories=[Category(label='stop sign', score=0.4765625, index=12)])
+41.625
+Detection(bounding_box=Rect(left=597, top=204, right=637, bottom=278), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+41.765625
+Detection(bounding_box=Rect(left=568, top=176, right=633, bottom=243), categories=[Category(label='stop sign', score=0.56640625, index=12)])
+39.4453125
+Detection(bounding_box=Rect(left=557, top=167, right=626, bottom=237), categories=[Category(label='stop sign', score=0.60546875, index=12)])
+38.1796875
+Detection(bounding_box=Rect(left=402, top=176, right=475, bottom=249), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+16.6640625
+Detection(bounding_box=Rect(left=402, top=176, right=475, bottom=246), categories=[Category(label='stop sign', score=0.39453125, index=12)])
+16.6640625
+Detection(bounding_box=Rect(left=371, top=208, right=442, bottom=277), categories=[Category(label='stop sign', score=0.39453125, index=12)])
+12.1640625
+Detection(bounding_box=Rect(left=357, top=184, right=430, bottom=253), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+10.3359375
+Detection(bounding_box=Rect(left=361, top=184, right=434, bottom=256), categories=[Category(label='stop sign', score=0.5234375, index=12)])
+10.8984375
+Detection(bounding_box=Rect(left=357, top=187, right=430, bottom=256), categories=[Category(label='stop sign', score=0.6484375, index=12)])
+10.3359375
+Detection(bounding_box=Rect(left=354, top=194, right=427, bottom=264), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+9.9140625
+Detection(bounding_box=Rect(left=362, top=202, right=435, bottom=271), categories=[Category(label='stop sign', score=0.54296875, index=12)])
+11.0390625
+Detection(bounding_box=Rect(left=374, top=221, right=443, bottom=288), categories=[Category(label='stop sign', score=0.5859375, index=12)])
+12.4453125
+Detection(bounding_box=Rect(left=474, top=242, right=543, bottom=312), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+26.5078125
+Detection(bounding_box=Rect(left=497, top=244, right=570, bottom=316), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+30.0234375
+Detection(bounding_box=Rect(left=506, top=238, right=578, bottom=310), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+31.21875
+Detection(bounding_box=Rect(left=510, top=232, right=583, bottom=304), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+31.8515625
+Detection(bounding_box=Rect(left=512, top=231, right=583, bottom=302), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+31.9921875
+Detection(bounding_box=Rect(left=514, top=221, right=587, bottom=297), categories=[Category(label='stop sign', score=0.83984375, index=12)])
+32.4140625
+Detection(bounding_box=Rect(left=522, top=216, right=599, bottom=290), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+33.8203125
+Detection(bounding_box=Rect(left=525, top=211, right=600, bottom=289), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+34.1015625
+Detection(bounding_box=Rect(left=522, top=209, right=599, bottom=288), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+33.8203125
+Detection(bounding_box=Rect(left=517, top=212, right=594, bottom=288), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+33.1171875
+Detection(bounding_box=Rect(left=511, top=216, right=588, bottom=291), categories=[Category(label='stop sign', score=0.81640625, index=12)])
+32.2734375
+Detection(bounding_box=Rect(left=509, top=218, right=584, bottom=291), categories=[Category(label='stop sign', score=0.828125, index=12)])
+31.8515625
+Detection(bounding_box=Rect(left=489, top=207, right=568, bottom=284), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+29.3203125
+Detection(bounding_box=Rect(left=402, top=211, right=481, bottom=289), categories=[Category(label='stop sign', score=0.3515625, index=12)])
+17.0859375
+Detection(bounding_box=Rect(left=371, top=218, right=453, bottom=291), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+12.9375
+Detection(bounding_box=Rect(left=346, top=207, right=433, bottom=287), categories=[Category(label='stop sign', score=0.56640625, index=12)])
+9.7734375
+Detection(bounding_box=Rect(left=328, top=199, right=411, bottom=279), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+6.9609375
+Detection(bounding_box=Rect(left=316, top=184, right=401, bottom=266), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+5.4140625
+Detection(bounding_box=Rect(left=308, top=183, right=396, bottom=264), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+4.5
+Detection(bounding_box=Rect(left=312, top=184, right=400, bottom=265), categories=[Category(label='stop sign', score=0.60546875, index=12)])
+5.0625
+Detection(bounding_box=Rect(left=313, top=187, right=401, bottom=268), categories=[Category(label='stop sign', score=0.45703125, index=12)])
+5.203125
+Detection(bounding_box=Rect(left=306, top=190, right=393, bottom=275), categories=[Category(label='stop sign', score=0.7734375, index=12)])
+4.1484375
+Detection(bounding_box=Rect(left=286, top=191, right=371, bottom=275), categories=[Category(label='stop sign', score=0.45703125, index=12)])
+1.1953125
+Detection(bounding_box=Rect(left=260, top=192, right=350, bottom=275), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+-2.109375
+Detection(bounding_box=Rect(left=240, top=190, right=327, bottom=276), categories=[Category(label='stop sign', score=0.60546875, index=12)])
+-5.1328125
+Detection(bounding_box=Rect(left=214, top=188, right=305, bottom=275), categories=[Category(label='stop sign', score=0.5859375, index=12)])
+-8.5078125
+Detection(bounding_box=Rect(left=187, top=176, right=275, bottom=264), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-12.515625
+Detection(bounding_box=Rect(left=160, top=178, right=250, bottom=266), categories=[Category(label='stop sign', score=0.66796875, index=12)])
+-16.171875
+Detection(bounding_box=Rect(left=128, top=182, right=223, bottom=273), categories=[Category(label='stop sign', score=0.7734375, index=12)])
+-20.3203125
+Detection(bounding_box=Rect(left=112, top=186, right=200, bottom=276), categories=[Category(label='stop sign', score=0.80078125, index=12)])
+-23.0625
+Detection(bounding_box=Rect(left=91, top=186, right=184, bottom=276), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+-25.6640625
+Detection(bounding_box=Rect(left=80, top=194, right=167, bottom=281), categories=[Category(label='stop sign', score=0.54296875, index=12)])
+-27.6328125
+Detection(bounding_box=Rect(left=64, top=201, right=147, bottom=284), categories=[Category(label='stop sign', score=0.5234375, index=12)])
+-30.1640625
+Detection(bounding_box=Rect(left=47, top=201, right=128, bottom=288), categories=[Category(label='stop sign', score=0.5859375, index=12)])
+-32.6953125
+Detection(bounding_box=Rect(left=0, top=182, right=83, bottom=272), categories=[Category(label='stop sign', score=0.3125, index=12)])
+-39.1640625
+Detection(bounding_box=Rect(left=0, top=169, right=63, bottom=265), categories=[Category(label='stop sign', score=0.5859375, index=12)])
+-40.5703125
+Detection(bounding_box=Rect(left=0, top=169, right=45, bottom=265), categories=[Category(label='stop sign', score=0.5234375, index=12)])
+-41.8359375
+Detection(bounding_box=Rect(left=0, top=164, right=45, bottom=261), categories=[Category(label='stop sign', score=0.5234375, index=12)])
+-41.8359375
+Detection(bounding_box=Rect(left=0, top=168, right=60, bottom=263), categories=[Category(label='stop sign', score=0.45703125, index=12)])
+-40.78125
+Detection(bounding_box=Rect(left=0, top=168, right=77, bottom=257), categories=[Category(label='stop sign', score=0.45703125, index=12)])
+-39.5859375
+Detection(bounding_box=Rect(left=12, top=161, right=99, bottom=253), categories=[Category(label='stop sign', score=0.5, index=12)])
+-37.1953125
+Detection(bounding_box=Rect(left=30, top=159, right=115, bottom=251), categories=[Category(label='stop sign', score=0.5, index=12)])
+-34.8046875
+Detection(bounding_box=Rect(left=56, top=158, right=141, bottom=243), categories=[Category(label='stop sign', score=0.5, index=12)])
+-31.1484375
+Detection(bounding_box=Rect(left=77, top=157, right=162, bottom=241), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+-28.1953125
+Detection(bounding_box=Rect(left=101, top=157, right=188, bottom=241), categories=[Category(label='stop sign', score=0.54296875, index=12)])
+-24.6796875
+Detection(bounding_box=Rect(left=127, top=158, right=210, bottom=240), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-21.3046875
+Detection(bounding_box=Rect(left=145, top=158, right=226, bottom=237), categories=[Category(label='stop sign', score=0.5, index=12)])
+-18.9140625
+Detection(bounding_box=Rect(left=169, top=156, right=251, bottom=233), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+-15.46875
+Detection(bounding_box=Rect(left=190, top=150, right=269, bottom=230), categories=[Category(label='stop sign', score=0.4765625, index=12)])
+-12.7265625
+Detection(bounding_box=Rect(left=208, top=154, right=289, bottom=232), categories=[Category(label='stop sign', score=0.5859375, index=12)])
+-10.0546875
+Detection(bounding_box=Rect(left=242, top=151, right=323, bottom=229), categories=[Category(label='stop sign', score=0.43359375, index=12)])
+-5.2734375
+Detection(bounding_box=Rect(left=265, top=144, right=353, bottom=222), categories=[Category(label='stop sign', score=0.6484375, index=12)])
+-1.546875
+Detection(bounding_box=Rect(left=281, top=141, right=364, bottom=221), categories=[Category(label='stop sign', score=0.5859375, index=12)])
+0.3515625
+Detection(bounding_box=Rect(left=295, top=140, right=380, bottom=219), categories=[Category(label='stop sign', score=0.5234375, index=12)])
+2.4609375
+Detection(bounding_box=Rect(left=303, top=133, right=388, bottom=214), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+3.5859375
+Detection(bounding_box=Rect(left=303, top=130, right=384, bottom=211), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+3.3046875
+Detection(bounding_box=Rect(left=303, top=131, right=390, bottom=210), categories=[Category(label='stop sign', score=0.7734375, index=12)])
+3.7265625
+Detection(bounding_box=Rect(left=314, top=134, right=399, bottom=216), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+5.1328125
+Detection(bounding_box=Rect(left=322, top=134, right=408, bottom=214), categories=[Category(label='stop sign', score=0.62890625, index=12)])
+6.328125
+Detection(bounding_box=Rect(left=332, top=130, right=418, bottom=214), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+7.734375
+Detection(bounding_box=Rect(left=338, top=125, right=429, bottom=213), categories=[Category(label='stop sign', score=0.66796875, index=12)])
+8.9296875
+Detection(bounding_box=Rect(left=351, top=127, right=437, bottom=214), categories=[Category(label='stop sign', score=0.80078125, index=12)])
+10.40625
+Detection(bounding_box=Rect(left=354, top=124, right=445, bottom=211), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+11.1796875
+Detection(bounding_box=Rect(left=338, top=123, right=428, bottom=206), categories=[Category(label='stop sign', score=0.60546875, index=12)])
+8.859375
+Detection(bounding_box=Rect(left=234, top=133, right=326, bottom=222), categories=[Category(label='stop sign', score=0.6484375, index=12)])
+-5.625
+Detection(bounding_box=Rect(left=197, top=136, right=291, bottom=229), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-10.6875
+Detection(bounding_box=Rect(left=171, top=105, right=269, bottom=193), categories=[Category(label='stop sign', score=0.60546875, index=12)])
+-14.0625
+Detection(bounding_box=Rect(left=173, top=56, right=273, bottom=156), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+-13.640625
+Detection(bounding_box=Rect(left=198, top=40, right=308, bottom=147), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+-9.421875
+Detection(bounding_box=Rect(left=219, top=32, right=329, bottom=141), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-6.46875
+Detection(bounding_box=Rect(left=243, top=40, right=360, bottom=151), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-2.6015625
+Detection(bounding_box=Rect(left=285, top=51, right=408, bottom=168), categories=[Category(label='stop sign', score=0.81640625, index=12)])
+3.7265625
+Detection(bounding_box=Rect(left=313, top=74, right=438, bottom=193), categories=[Category(label='stop sign', score=0.8515625, index=12)])
+7.8046875
+Detection(bounding_box=Rect(left=332, top=82, right=458, bottom=201), categories=[Category(label='stop sign', score=0.86328125, index=12)])
+10.546875
+Detection(bounding_box=Rect(left=359, top=76, right=482, bottom=195), categories=[Category(label='stop sign', score=0.81640625, index=12)])
+14.1328125
+Detection(bounding_box=Rect(left=385, top=67, right=512, bottom=192), categories=[Category(label='stop sign', score=0.890625, index=12)])
+18.0703125
+Detection(bounding_box=Rect(left=402, top=66, right=531, bottom=193), categories=[Category(label='stop sign', score=0.890625, index=12)])
+20.6015625
+Detection(bounding_box=Rect(left=400, top=65, right=532, bottom=198), categories=[Category(label='stop sign', score=0.87109375, index=12)])
+20.53125
+Detection(bounding_box=Rect(left=396, top=77, right=527, bottom=204), categories=[Category(label='stop sign', score=0.8828125, index=12)])
+19.8984375
+Detection(bounding_box=Rect(left=409, top=70, right=540, bottom=202), categories=[Category(label='stop sign', score=0.86328125, index=12)])
+21.7265625
+Detection(bounding_box=Rect(left=410, top=59, right=544, bottom=187), categories=[Category(label='stop sign', score=0.8515625, index=12)])
+22.078125
+Detection(bounding_box=Rect(left=417, top=48, right=551, bottom=180), categories=[Category(label='stop sign', score=0.8828125, index=12)])
+23.0625
+Detection(bounding_box=Rect(left=419, top=46, right=560, bottom=181), categories=[Category(label='stop sign', score=0.86328125, index=12)])
+23.8359375
+Detection(bounding_box=Rect(left=425, top=59, right=562, bottom=192), categories=[Category(label='stop sign', score=0.86328125, index=12)])
+24.3984375
+Detection(bounding_box=Rect(left=438, top=61, right=575, bottom=198), categories=[Category(label='stop sign', score=0.87109375, index=12)])
+26.2265625
+Detection(bounding_box=Rect(left=453, top=53, right=597, bottom=193), categories=[Category(label='stop sign', score=0.8515625, index=12)])
+28.828125
+Detection(bounding_box=Rect(left=476, top=55, right=612, bottom=195), categories=[Category(label='stop sign', score=0.83984375, index=12)])
+31.5
+Detection(bounding_box=Rect(left=493, top=53, right=638, bottom=192), categories=[Category(label='stop sign', score=0.87109375, index=12)])
+34.5234375
+Detection(bounding_box=Rect(left=506, top=49, right=640, bottom=196), categories=[Category(label='stop sign', score=0.87109375, index=12)])
+35.578125
+Detection(bounding_box=Rect(left=535, top=40, right=637, bottom=187), categories=[Category(label='stop sign', score=0.83984375, index=12)])
+37.40625
+Detection(bounding_box=Rect(left=567, top=23, right=637, bottom=174), categories=[Category(label='stop sign', score=0.70703125, index=12)])
+39.65625
+Detection(bounding_box=Rect(left=377, top=0, right=531, bottom=74), categories=[Category(label='stop sign', score=0.6875, index=12)])
+18.84375
+Detection(bounding_box=Rect(left=322, top=0, right=490, bottom=70), categories=[Category(label='stop sign', score=0.5, index=12)])
+12.09375
+Detection(bounding_box=Rect(left=274, top=0, right=436, bottom=63), categories=[Category(label='stop sign', score=0.45703125, index=12)])
+4.921875
+Detection(bounding_box=Rect(left=198, top=0, right=363, bottom=57), categories=[Category(label='stop sign', score=0.54296875, index=12)])
+-5.5546875
+Detection(bounding_box=Rect(left=195, top=0, right=348, bottom=66), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-6.8203125
+Detection(bounding_box=Rect(left=195, top=0, right=348, bottom=66), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-6.8203125
+Detection(bounding_box=Rect(left=197, top=0, right=353, bottom=72), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+-6.328125
+Detection(bounding_box=Rect(left=197, top=0, right=353, bottom=76), categories=[Category(label='stop sign', score=0.80078125, index=12)])
+-6.328125
+Detection(bounding_box=Rect(left=199, top=1, right=344, bottom=95), categories=[Category(label='stop sign', score=0.8515625, index=12)])
+-6.8203125
+Detection(bounding_box=Rect(left=190, top=0, right=331, bottom=115), categories=[Category(label='stop sign', score=0.8984375, index=12)])
+-8.3671875
+Detection(bounding_box=Rect(left=173, top=1, right=312, bottom=122), categories=[Category(label='stop sign', score=0.921875, index=12)])
+-10.8984375
+Detection(bounding_box=Rect(left=163, top=-1, right=305, bottom=117), categories=[Category(label='stop sign', score=0.90625, index=12)])
+-12.09375
+Detection(bounding_box=Rect(left=148, top=0, right=284, bottom=119), categories=[Category(label='stop sign', score=0.9140625, index=12)])
+-14.625
+Detection(bounding_box=Rect(left=130, top=0, right=269, bottom=123), categories=[Category(label='stop sign', score=0.90625, index=12)])
+-16.9453125
+Detection(bounding_box=Rect(left=113, top=4, right=249, bottom=132), categories=[Category(label='stop sign', score=0.8828125, index=12)])
+-19.546875
+Detection(bounding_box=Rect(left=90, top=0, right=224, bottom=123), categories=[Category(label='stop sign', score=0.890625, index=12)])
+-22.921875
+Detection(bounding_box=Rect(left=79, top=1, right=213, bottom=126), categories=[Category(label='stop sign', score=0.8984375, index=12)])
+-24.46875
+Detection(bounding_box=Rect(left=80, top=7, right=215, bottom=130), categories=[Category(label='stop sign', score=0.87109375, index=12)])
+-24.2578125
+Detection(bounding_box=Rect(left=87, top=16, right=216, bottom=143), categories=[Category(label='stop sign', score=0.8828125, index=12)])
+-23.6953125
+Detection(bounding_box=Rect(left=80, top=25, right=212, bottom=150), categories=[Category(label='stop sign', score=0.8515625, index=12)])
+-24.46875
+Detection(bounding_box=Rect(left=64, top=31, right=189, bottom=157), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-27.2109375
+Detection(bounding_box=Rect(left=50, top=29, right=179, bottom=154), categories=[Category(label='stop sign', score=0.80078125, index=12)])
+-28.8984375
+Detection(bounding_box=Rect(left=36, top=23, right=159, bottom=148), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-31.2890625
+Detection(bounding_box=Rect(left=30, top=22, right=157, bottom=149), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-31.8515625
+Detection(bounding_box=Rect(left=23, top=20, right=147, bottom=147), categories=[Category(label='stop sign', score=0.828125, index=12)])
+-33.046875
+Detection(bounding_box=Rect(left=10, top=22, right=132, bottom=149), categories=[Category(label='stop sign', score=0.7890625, index=12)])
+-35.015625
+Detection(bounding_box=Rect(left=2, top=23, right=118, bottom=149), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-36.5625
+Detection(bounding_box=Rect(left=1, top=4, right=178, bottom=179), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+-32.4140625
+Detection(bounding_box=Rect(left=2, top=24, right=115, bottom=152), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-36.7734375
+Detection(bounding_box=Rect(left=1, top=25, right=110, bottom=151), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-37.1953125
+Detection(bounding_box=Rect(left=-2, top=3, right=173, bottom=167), categories=[Category(label='stop sign', score=0.3125, index=12)])
+-32.9765625
+Detection(bounding_box=Rect(left=1, top=33, right=106, bottom=157), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-37.4765625
+Detection(bounding_box=Rect(left=1, top=7, right=169, bottom=168), categories=[Category(label='stop sign', score=0.4140625, index=12)])
+-33.046875
+Detection(bounding_box=Rect(left=3, top=37, right=107, bottom=160), categories=[Category(label='stop sign', score=0.72265625, index=12)])
+-37.265625
+Detection(bounding_box=Rect(left=0, top=10, right=164, bottom=170), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+-33.46875
+Detection(bounding_box=Rect(left=1, top=34, right=110, bottom=156), categories=[Category(label='stop sign', score=0.7578125, index=12)])
+-37.1953125
+Detection(bounding_box=Rect(left=2, top=26, right=112, bottom=150), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-36.984375
+Detection(bounding_box=Rect(left=0, top=6, right=178, bottom=164), categories=[Category(label='stop sign', score=0.33203125, index=12)])
+-32.484375
+Detection(bounding_box=Rect(left=1, top=23, right=94, bottom=149), categories=[Category(label='stop sign', score=0.73828125, index=12)])
+-38.3203125
+Detection(bounding_box=Rect(left=0, top=5, right=163, bottom=154), categories=[Category(label='stop sign', score=0.37109375, index=12)])
+-33.5390625
