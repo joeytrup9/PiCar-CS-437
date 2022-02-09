@@ -5,9 +5,6 @@ from enum import Enum
 from picar_4wd import Speed
 
 
-class turns(Enum):
-	RIGHT = -90
-	LEFT = 90
 
 def turn_left90():
     fc.turn_left(10)
@@ -42,16 +39,7 @@ def trav_distance(distance:float, direction):
 	speed3.deinit()
 	fc.stop()
 
-def follow_path(path):
-	for c in path:
-		if c == 'right':
-			fc.turn_right(30)
-		elif c == 'left':
-			fc.turn_left(30)
-		elif c == 'stop':
-			fc.stop()
-		else:
-			pass
+
 def test_1():
 	trav_distance(12.0, 'forward')
 	trav_distance(12.0, 'backward')
