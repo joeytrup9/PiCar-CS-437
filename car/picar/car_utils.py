@@ -21,6 +21,7 @@ class Orientation(Enum):
     SOUTH = 1
     EAST = 2
     WEST = 3
+
 N = 100
 pts = np.full((N,N), -1)
 car_x = 0
@@ -39,7 +40,7 @@ def print_status():
     
 def print_readable():
     global pts
-    for i in np.flipud(pts):
+    for i in pts:
         s = ""
         for j in i:
             if j == 1:
@@ -68,22 +69,22 @@ def set_pos(turn, distance):
         if turn == 'Right':
             orientation = Orientation.EAST
         if turn == 'Left':
-            orientation == Orientation.WEST
+            orientation = Orientation.WEST
     if orientation == Orientation.EAST:
         if turn == 'Right':
             orientation = Orientation.SOUTH
         if turn == 'Left':
-            orientation == Orientation.NORTH
+            orientation = Orientation.NORTH
     if orientation == Orientation.SOUTH:
         if turn == 'Right':
             orientation = Orientation.WEST
         if turn == 'Left':
-            orientation == Orientation.EAST
+            orientation = Orientation.EAST
     if orientation == Orientation.WEST:
         if turn == 'Right':
             orientation = Orientation.NORTH
         if turn == 'Left':
-            orientation == Orientation.SOUTH
+            orientation = Orientation.SOUTH
     
 def test_with_input():
     global car_x,car_y,orientation
@@ -138,26 +139,13 @@ scan_list = []
 
 def fill_radius():
     global car_x,car_y,orientation,pts
-    xc = car_x
-    yc = car_y
     radius = US_THRESHOLD
     for o_x in range(-radius,radius+1):
         o_y = 0
         while(((o_x)**2 + (o_y)**2) < radius**2):
             y = 0
             x = 0
-            if orientation == Orientation.NORTH:
-                y = yc + o_y
-                x = xc + o_x
-            elif orientation == Orientation.SOUTH:
-                y = yc - o_y
-                x = xc + o_x
-            elif orient == Orientation.EAST:
-                y = yc - o_x
-                x = xc + o_y
-            elif orientation == Orientation.WEST:
-                y = yc - o_x
-                x = xc - o_y
+            x,y = offset_point(o_x,o_y)
             if not (y < 0 or y > N-1 or x < 0 or x > N-1):
                 pts[y][x] = max(pts[y][x], 0)
             o_y+=1
@@ -170,20 +158,21 @@ def reading_distance(sensor_angle, dist):
 def offset_point(readingX,readingY):
     global car_x,car_y, orientation
     if orientation == Orientation.NORTH:
-        return car_x + readingX,car_y + readingY
-    if orientation == Orientation.SOUTH:
         return car_x + readingX,car_y - readingY
+    if orientation == Orientation.SOUTH:
+        return car_x - readingX,car_y + readingY
     if orientation == Orientation.EAST:
-        return car_x + readingY,car_y - readingX
+        return car_x + readingY,car_y + readingX
     if orientation == Orientation.WEST:
         return car_x - readingY,car_y - readingX
 
 def append_coords(sensor_angle,dist):
+    tmp_angle = -sensor_angle
     global scan_list
     if dist == -2:
         scan_list.append(False)
         return False
-    readingX, readingY = reading_distance(sensor_angle,dist)
+    readingX, readingY = reading_distance(tmp_angle,dist)
     point_x,point_y = offset_point(readingX,readingY)
     point_x -= 1
     point_y -= 1
