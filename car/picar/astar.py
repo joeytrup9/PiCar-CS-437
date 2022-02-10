@@ -192,12 +192,12 @@ def get_instructions(path):
             if next_y == curr_point[1] - 1:
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Right")
-                local_orient = Orientation.SOUTH
+                local_orient = Orientation.NORTH
                 pivot = curr_point
             elif next_y == curr_point[1] + 1:
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Left")
-                local_orient = Orientation.NORTH
+                local_orient = Orientation.SOUTH
                 pivot = curr_point
 
 
