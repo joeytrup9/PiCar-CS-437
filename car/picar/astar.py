@@ -3,6 +3,8 @@
 import numpy as np
 from car_utils import *
 from heapq import *
+import settings
+import copy
 def print_readable1(pts):
     for i in np.flipud(pts):
         s = ""
@@ -114,15 +116,15 @@ def astar(obstacle_map, start_node, end_node, clearance):
 
 
 # gets intructions from path
-def get_instructions(path, orientation):
+def get_instructions(path):
     #print("inst_path:" + str(path))
     if path == False:
         return False
     
     curr_point = path[0]
     pivot = path[0]
-
-
+    local_orient = copy.deepcopy(settings.orientation)
+    
     instructions = []
 
 
@@ -131,82 +133,82 @@ def get_instructions(path, orientation):
         next_y = next_point[1]
 
 
-        if orientation == Orientation.NORTH:
+        if local_orient == Orientation.NORTH:
             if next_y == curr_point[1] + 1:
                 instructions.append("Right")
                 instructions.append("Right")
-                orientation = Orientation.SOUTH
+                local_orient = Orientation.SOUTH
             if next_x == curr_point[0] + 1:
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Right")
-                orientation = Orientation.EAST
+                local_orient = Orientation.EAST
                 pivot = curr_point
             elif next_x == curr_point[0] - 1:
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Left")
-                orientation = Orientation.WEST
+                local_orient = Orientation.WEST
                 pivot = curr_point
 
 
-        elif orientation == Orientation.SOUTH:
+        elif local_orient == Orientation.SOUTH:
             if next_y == curr_point[1] - 1:
                 instructions.append("Right")
                 instructions.append("Right")
-                orientation = Orientation.NORTH
+                local_orient = Orientation.NORTH
             if next_x == curr_point[0] - 1:
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Right")
-                orientation = Orientation.WEST
+                local_orient = Orientation.WEST
                 pivot = curr_point
             elif next_x == curr_point[0] + 1:
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Left")
-                orientation = Orientation.EAST
+                local_orient = Orientation.EAST
                 pivot = curr_point
 
 
-        elif orientation == Orientation.EAST:
+        elif local_orient == Orientation.EAST:
             if next_x == curr_point[0] - 1:
                 instructions.append("Right")
                 instructions.append("Right")
-                orientation = Orientation.EAST
+                local_orient = Orientation.EAST
             if next_y == curr_point[1] - 1:
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Left")
-                orientation = Orientation.NORTH
+                local_orient = Orientation.NORTH
                 pivot = curr_point
             elif next_y == curr_point[1] + 1:
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Right")
-                orientation = Orientation.SOUTH
+                local_orient = Orientation.SOUTH
                 pivot = curr_point
 
 
-        if orientation == Orientation.WEST:
+        if local_orient == Orientation.WEST:
             if next_x == curr_point[0] + 1:
                 instructions.append("Right")
                 instructions.append("Right")
-                orientation = Orientation.EAST
+                local_orient = Orientation.EAST
             if next_y == curr_point[1] - 1:
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Right")
-                orientation = Orientation.SOUTH
+                local_orient = Orientation.SOUTH
                 pivot = curr_point
             elif next_y == curr_point[1] + 1:
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Left")
-                orientation = Orientation.NORTH
+                local_orient = Orientation.NORTH
                 pivot = curr_point
 
 
         curr_point = next_point
 
 
-    if orientation == Orientation.NORTH or orientation == Orientation.SOUTH:
+    if local_orient == Orientation.NORTH or local_orient == Orientation.SOUTH:
         instructions.append(abs(curr_point[1] - pivot[1]))
 
 
-    if orientation == Orientation.EAST or orientation == Orientation.WEST:
+    if local_orient == Orientation.EAST or local_orient == Orientation.WEST:
         instructions.append(abs(curr_point[0] - pivot[0]))
 
 
@@ -249,7 +251,7 @@ def main():
     print(get_instructions(path, "East"))
 
 
-    get_instructions(astar(maze, start, end, clearance), orientation)
+    get_instructions(astar(maze, start, end, clearance), local_orient)
     
     # [(0, 8), 'Left', (8, 3)]
 
@@ -280,7 +282,7 @@ def test1():
     print(get_instructions(path, "East"))
 
 
-    get_instructions(astar(maze, start, end, clearance), orientation)
+    get_instructions(astar(maze, start, end, clearance), local_orient)
     
 if __name__ == '__main__':
     main()
