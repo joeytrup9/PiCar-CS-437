@@ -9,6 +9,7 @@ import picar_4wd as fc
 from picar_4wd import Speed
 import fileinput
 import settings
+import printing
 
 
 #general globals,classes,functions-------------------
@@ -185,6 +186,7 @@ def make_line(x1,y1,x2,y2):
 def connect_coords():
     #for element in list create pairing for each adjacent element with reading != -2 
     #global settings.scan_list, pts
+    #print(settings.scan_list)
     grouping = [list(g) for k, g in groupby(settings.scan_list, lambda x: x != False) if k]
     #print(grouping)
     
@@ -216,14 +218,16 @@ def scan_step():
         settings.us_step = settings.STEP
     dist = get_distance_at(settings.current_angle)
     append_coords(settings.current_angle,dist)
+    #print(settings.scan_list)
     #print(settings.current_angle,dist) 
-    if settings.current_angle == settings.min_angle or settings.current_angle == settings.max_angle:
+    if settings.full_scan_active == True and(settings.current_angle == settings.min_angle or settings.current_angle == settings.max_angle):
         connect_coords()
         if settings.us_step < 0: 
             # print("reverse")
             settings.scan_list.reverse()
-        # print(settings.scan_list)
+        #print(settings.scan_list)
         tmp = settings.scan_list.copy()
+        #print('!!!',settings.scan_list,tmp)
         settings.scan_list = []
         return tmp
     else:
@@ -233,10 +237,15 @@ def single_full_scan():
     #global settings.current_angle, settings.car_x, settings.car_y,orient, pts
     fc.servo.set_angle(settings.min_angle)
     time.sleep(.5)
+    fc.servo.set_angle(settings.min_angle)
+    time.sleep(.5)
     settings.current_angle = settings.min_angle
-    for i in range(settings.FULL_SCAN):
+    settings.full_scan_active = True
+    for i in range(2 * settings.FULL_SCAN):
         scan_step()
+    settings.full_scan_active = False
     fill_radius()
+    printing.pretty_printing(settings.pts)
     
     
 #precise movements------------------------
@@ -264,15 +273,22 @@ def trav_distance(distance:float, direction):
     elif direction == 'right':
         fc.turn_right(10)
     x = 0
+    obstacle_found = False
     while (x) < distance * m:
+        scan_list = fc.scan_step()
+        middle = scan_list[:5], scan_list[2:5], scan_list[3:]
+        if middle != [2,2,2]:
+            obstacle_found = True
+            break
         time.sleep(0.01)
         speed = (speed4() + speed3()) /2
-        x += speed * 0.01
+        x += speed * 0.05
         
     print("%scm"%(x/m))
     speed4.deinit()
     speed3.deinit()
     fc.stop()
+    return x,obstacle_found
 
 #obstacle check-----------------------------
 

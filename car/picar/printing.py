@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 import settings
+import tempfile
 
 def build_maze():
     maze = []
@@ -21,9 +22,14 @@ def build_maze():
 
 def pretty_printing(graph):
     settings.im_count +=1
+    if settings.output_dir == '':
+        dr = tempfile.mkdtemp(dir = 'output/')
+        settings.output_dir = dr
+    output_dir = settings.output_dir + '/' + str(settings.im_count) + '__' + str(settings.car_x) + '_' + str(settings.car_y) + '.png'
+    #print(output_dir)
     plt.imshow(graph,interpolation='none')
-    plt.savefig('current_map.png')
+    plt.savefig(output_dir)
     
-
-pretty_printing(build_maze())
-pretty_printing(build_maze())
+if __name__ == '__main__':
+    pretty_printing(build_maze())
+    pretty_printing(build_maze())
