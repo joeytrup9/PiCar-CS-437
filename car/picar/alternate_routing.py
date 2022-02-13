@@ -21,14 +21,14 @@ def scan_and_travel(distance:int,direction):
     x = 0
     obstacle = False
     if direction == 1: #forward
-        fc.forward(2)
+        fc.forward(1)
     elif direction == -1: #backward (for testing)
         fc.backward(3)
     while x < distance:
         stime = time.time()
-        scans = fc.scan_step(25)
+        scans = fc.scan_step(35)
         #print(scans)
-        if scans and len(scans) > 5 and scans[3:7] != [2,2,2,2]:
+        if scans and len(scans) > 9 and scans[3:7] != [2,2,2,2]:
             fc.stop()
             obstacle = True
             break
@@ -51,7 +51,7 @@ def mark_end(end):
 
 def alternate_routing(start,end,orientation):
     signal.signal(signal.SIGINT,handler)
-    mark_end(end)
+    #mark_end(end)
     settings.car_x,settings.car_y,settings.orientation = start[0],start[1],orientation
     print(settings.car_x,settings.car_y,settings.orientation)
     single_full_scan()
@@ -66,6 +66,7 @@ def alternate_routing(start,end,orientation):
             printing.pretty_printing(settings.pts)
             continue
         for i in instructions:
+            single_full_scan()
             if i == 0:
                 i+=1
             if i == 'Left':
@@ -79,7 +80,7 @@ def alternate_routing(start,end,orientation):
                 set_pos(False,round(x))
                 printing.pretty_printing(settings.pts)
                 if o:
-                    single_full_scan()
+                    #single_full_scan()
                     break
     
     print("made it fools!")

@@ -19,8 +19,8 @@ car_x = 0
 car_y = 0
 angle = 0
 orientation = Orientation.NORTH
-dimensions = (25, 25)
-clearance = 2
+dimensions = (20, 20)
+clearance = 4
 im_count = 0
 
 #mapping
@@ -30,7 +30,7 @@ us_step = STEP
 current_angle = 0
 max_angle = ANGLE_RANGE/2
 min_angle = -(ANGLE_RANGE/2)
-US_THRESHOLD = 20
+US_THRESHOLD = 30
 FULL_SCAN = int(ANGLE_RANGE / STEP)
 scan_list = []
 full_scan_active = False

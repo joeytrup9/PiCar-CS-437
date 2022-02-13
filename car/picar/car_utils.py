@@ -64,7 +64,7 @@ def set_pos(turn, distance):
             settings.car_y += distance
         if settings.orientation == Orientation.WEST:
             settings.car_x -= distance
-        draw_path(car_pos[0],car_pos[1],settings.car_x,settings.car_y)
+        #draw_path(car_pos[0],car_pos[1],settings.car_x,settings.car_y)
         return
     
     if settings.orientation == Orientation.NORTH:
@@ -147,7 +147,7 @@ def fill_radius():
 
 def reading_distance(sensor_angle, dist):
     x = int(dist * np.sin(sensor_angle * (np.pi / 180)))
-    y = int(dist * np.cos(sensor_angle * (np.pi/180)))
+    y = max(int(dist * np.cos(sensor_angle * (np.pi/180)))-5,2)
     return x,y
 
 def offset_point(readingX,readingY):
