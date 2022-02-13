@@ -79,14 +79,14 @@ class App(object):
             self.__b = False
         self.car.key_controller(self.__f,self.__b,self.__l,self.__r)
     def task(self):
-        if self.__r:
-            print ('right')
-        if self.__l:
-            print('left')
-        if self.__f:
-            print('forward')
-        if self.__b:
-            print('back')
+        #if self.__r:
+            #print ('right')
+        #if self.__l:
+            #print('left')
+        #if self.__f:
+            #print('forward')
+        #if self.__b:
+            #print('back')
         self.win.after(20,self.task)
     def runloop(self):
         self.win = Tk()
@@ -117,7 +117,7 @@ class Car():
         self.right_rear.set_power(power_direction[1])
     def key_controller(self,f,b,l,r):
         power_direction = (0,0) #(left_power, right_power)
-        print("key command")
+        #print("key command")
         if r:
             power_direction = (50,-50)
         if l:

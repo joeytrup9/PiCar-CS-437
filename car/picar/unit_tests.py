@@ -30,6 +30,7 @@ def scan_test2():
             settings.orientation = Orientation.WEST
             single_full_scan()
     
+
     
 
 if __name__ == '__main__':

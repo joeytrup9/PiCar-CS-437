@@ -10,19 +10,11 @@ from picar_4wd import Speed
 import fileinput
 import settings
 import printing
+from settings import Orientation
 
 
 #general globals,classes,functions-------------------
-class Angles(Enum):
-    NORTH = 0
-    EAST = 90
-    SOUTH = 180
-    WEST = 240
-class Orientation(Enum):
-    NORTH = 0
-    SOUTH = 1
-    EAST = 2
-    WEST = 3
+
 
 
 
@@ -48,9 +40,22 @@ def print_readable():
                 
         print(s)
 
+def draw_path(x1,y1,x2,y2):
+    #global pts
+    if x1 == x2:
+        for y in range(min(y1,y2)+1,max(y1,y2)):
+            settings.pts[int(y)][int(x1)] = -2
+        return
+    m =  (y2-y1) / (x2-x1)
+
+    for x in range(min(x1,x2)+1,max(x1,x2)):
+        y = m * (x - x1) + y1
+        settings.pts[int(y)][int(x)] = -2
+
 def set_pos(turn, distance):
     #global orientation,settings.car_x,settings.car_y
     if turn == False:
+        car_pos = (settings.car_x,settings.car_y)
         if settings.orientation == Orientation.NORTH:
             settings.car_y -= distance
         if settings.orientation == Orientation.EAST:
@@ -59,6 +64,7 @@ def set_pos(turn, distance):
             settings.car_y += distance
         if settings.orientation == Orientation.WEST:
             settings.car_x -= distance
+        draw_path(car_pos[0],car_pos[1],settings.car_x,settings.car_y)
         return
     
     if settings.orientation == Orientation.NORTH:
@@ -135,7 +141,8 @@ def fill_radius():
             x = 0
             x,y = offset_point(o_x,o_y)
             if not (y < 0 or y > settings.N-1 or x < 0 or x > settings.N-1):
-                settings.pts[y][x] = max(settings.pts[y][x], 0)
+                if settings.pts[y][x] != -2:
+                    settings.pts[y][x] = 0
             o_y+=1
 
 def reading_distance(sensor_angle, dist):
@@ -235,28 +242,35 @@ def scan_step():
 
 def single_full_scan():
     #global settings.current_angle, settings.car_x, settings.car_y,orient, pts
+    fill_radius()
     fc.servo.set_angle(settings.min_angle)
     time.sleep(.5)
     fc.servo.set_angle(settings.min_angle)
     time.sleep(.5)
     settings.current_angle = settings.min_angle
     settings.full_scan_active = True
+    
     for i in range(2 * settings.FULL_SCAN):
+        if i == settings.FULL_SCAN:
+            fc.servo.set_angle(settings.max_angle - (settings.STEP / 2))
+            time.sleep(.2)
         scan_step()
     settings.full_scan_active = False
-    fill_radius()
+    
     printing.pretty_printing(settings.pts)
+    fc.servo.set_angle(0)
+    time.sleep(.5)
     
     
 #precise movements------------------------
 
 def turn_left90():
     fc.turn_left(10)
-    time.sleep(.9)
+    time.sleep(.7)
     fc.stop()
 def turn_right90():
     fc.turn_right(10)
-    time.sleep(.95)
+    time.sleep(.7)
     fc.stop()
 def trav_distance(distance:float, direction):
     m = .5
@@ -274,17 +288,64 @@ def trav_distance(distance:float, direction):
         fc.turn_right(10)
     x = 0
     obstacle_found = False
-    while (x) < distance * m:
-        scan_list = fc.scan_step()
-        middle = scan_list[:5], scan_list[2:5], scan_list[3:]
-        if middle != [2,2,2]:
-            obstacle_found = True
-            break
+    while (not obstacle_found) and (x) < distance:
+        #fc.servo.set_angle(0)
+        #tmp = fc.scan_step(20)
+        #print(tmp,settings.detections)
+        #if len(settings.detections) > 0:
+        #    return
+        #--------------------
+#         if tmp and len(tmp) > 5:
+#             middle = tmp[3:7]
+#             if middle != [2,2,2,2]:
+#                 obstacle_found = True
+                
+        #---------------------
         time.sleep(0.01)
         speed = (speed4() + speed3()) /2
-        x += speed * 0.05
+        x += speed * 0.01
+        #print(x,tmp)
         
-    print("%scm"%(x/m))
+    print("%scm"%(x))
+    speed4.deinit()
+    speed3.deinit()
+    fc.stop()
+    return x,obstacle_found
+def trav_distance_scanning(distance:float, direction):
+    m = .5
+    speed3 = Speed(4)
+    speed4 = Speed(25)
+    speed3.start()
+    speed4.start()
+    if direction == 'forward':
+        fc.forward(10)
+    elif direction == 'backward':
+        fc.backward(10)
+    elif direction == 'left':
+        fc.turn_left(10)
+    elif direction == 'right':
+        fc.turn_right(10)
+    x = 0
+    obstacle_found = False
+    while (not obstacle_found) and (x) < distance:
+        #fc.servo.set_angle(0)
+        tmp = fc.scan_step(20)
+        #print(tmp,settings.detections)
+        #if len(settings.detections) > 0:
+        #    return
+        #--------------------
+        if tmp and len(tmp) > 5:
+            middle = tmp[3:7]
+            if middle != [2,2,2,2]:
+                obstacle_found = True
+                
+        #---------------------
+        #time.sleep(0.01)
+        speed = (speed4() + speed3()) /2
+        x += speed * 0.04
+        print(x,tmp)
+        
+    print("%scm"%(x))
     speed4.deinit()
     speed3.deinit()
     fc.stop()
@@ -308,28 +369,46 @@ def find_forward_dist(obstacle_map, width, orientation, pos):
     forward_counter = sys.maxsize
 
     if orientation == Orientation.NORTH:
+        #print("ffd - North")
         for x in range(x_pos - int(width / 2), x_pos + int(width / 2) + 1):
             forward_room = 0
+            
+            if not on_board((x, y_pos - 1 - forward_room), obstacle_map):
+                forward_room = sys.maxsize
 
             while on_board((x, y_pos - 1 - forward_room), obstacle_map) and obstacle_map[y_pos - 1 - forward_room][x] == 0:
                 forward_room += 1
+                
+            #print("forward room:" + str(forward_room))
+            #print("forward counter:" + str(forward_counter))
            
             if forward_room < forward_counter:
                 forward_counter = forward_room
 
     if orientation == Orientation.SOUTH:
+        #print("ffd - South")
         for x in range(x_pos - int(width / 2), x_pos + int(width / 2) + 1):
             forward_room = 0
+            
+            if not on_board((x, y_pos + 1 + forward_room), obstacle_map):
+                forward_room = sys.maxsize
 
             while on_board((x, y_pos + 1 + forward_room), obstacle_map) and obstacle_map[y_pos + 1 + forward_room][x] == 0:
                 forward_room += 1
+                
+            #print("forward room:" + str(forward_room))
+            #print("forward counter:" + str(forward_counter))
            
             if forward_room < forward_counter:
                 forward_counter = forward_room
 
     if orientation == Orientation.EAST:
+        #print("ffd - East")
         for y in range(y_pos - int(width / 2), y_pos + int(width / 2) + 1):
             forward_room = 0
+            
+            if not on_board((x_pos + 1 + forward_room, y), obstacle_map):
+                forward_room = sys.maxsize
 
             while on_board((x_pos + 1 + forward_room, y), obstacle_map) and obstacle_map[y][x_pos + 1 + forward_room] == 0:
                 forward_room += 1
@@ -338,13 +417,32 @@ def find_forward_dist(obstacle_map, width, orientation, pos):
                 forward_counter = forward_room
 
     if orientation == Orientation.WEST:
+        #print("ffd - West")
         for y in range(y_pos - int(width / 2), y_pos + int(width / 2) + 1):
             forward_room = 0
+            
+            if not on_board((x_pos - 1 - forward_room, y), obstacle_map):
+                forward_room = sys.maxsize
 
             while on_board((x_pos - 1 - forward_room, y), obstacle_map) and obstacle_map[y][x_pos - 1 - forward_room] == 0:
                 forward_room += 1
+                
+            
+            #print("forward room:" + str(forward_room))
+            #print("forward counter:" + str(forward_counter))
            
             if forward_room < forward_counter:
                 forward_counter = forward_room
 
     return forward_counter
+
+#detections
+# def get_detection_distance(bounding):
+#     global img_width, degree_range   
+#     right = bounding.right
+#     left = bounding.left
+#     deg_per_px = degree_range/img_width
+#     center_px = left + ((right-left)/2)
+#     center_angle = (center_px * deg_per_px)+ (-45)
+#     print(center_angle)
+#     fc.servo.set_angle(center_angle)

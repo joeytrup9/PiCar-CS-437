@@ -5,6 +5,14 @@ from car_utils import *
 from heapq import *
 import settings
 import copy
+from enum import Enum
+
+# class Orientation(Enum):
+#     NORTH = 0
+#     SOUTH = 1
+#     EAST = 2
+#     WEST = 3
+    
 def print_readable1(pts):
     for i in np.flipud(pts):
         s = ""
@@ -123,7 +131,17 @@ def get_instructions(path):
     
     curr_point = path[0]
     pivot = path[0]
-    local_orient = copy.deepcopy(settings.orientation)
+
+    print("settings orientation: " + str(settings.orientation))
+    local_orient = Orientation.NORTH
+    if settings.orientation == Orientation.NORTH:
+        local_orient = Orientation.NORTH
+    elif settings.orientation == Orientation.SOUTH:
+        local_orient = Orientation.SOUTH
+    elif settings.orientation == Orientation.EAST:
+        local_orient = Orientation.EAST
+    elif settings.orientation == Orientation.WEST:
+        local_orient = Orientation.WEST
     
     instructions = []
 
@@ -139,11 +157,13 @@ def get_instructions(path):
                 instructions.append("Right")
                 local_orient = Orientation.SOUTH
             if next_x == curr_point[0] + 1:
+#                 print("NORTH - RIGHT");
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Right")
                 local_orient = Orientation.EAST
                 pivot = curr_point
             elif next_x == curr_point[0] - 1:
+#                 print("NORTH - LEFT");
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Left")
                 local_orient = Orientation.WEST
@@ -156,11 +176,13 @@ def get_instructions(path):
                 instructions.append("Right")
                 local_orient = Orientation.NORTH
             if next_x == curr_point[0] - 1:
+#                 print("SOUTH - RIGHT");
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Right")
                 local_orient = Orientation.WEST
                 pivot = curr_point
             elif next_x == curr_point[0] + 1:
+#                 print("SOUTH - LEFT");
                 instructions.append(abs(next_y - pivot[1]))
                 instructions.append("Left")
                 local_orient = Orientation.EAST
@@ -173,28 +195,32 @@ def get_instructions(path):
                 instructions.append("Right")
                 local_orient = Orientation.EAST
             if next_y == curr_point[1] - 1:
+#                 print("EAST - LEFT");
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Left")
                 local_orient = Orientation.NORTH
                 pivot = curr_point
             elif next_y == curr_point[1] + 1:
+#                 print("EAST - RIGHT");
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Right")
                 local_orient = Orientation.SOUTH
                 pivot = curr_point
 
 
-        if local_orient == Orientation.WEST:
+        elif local_orient == Orientation.WEST:
             if next_x == curr_point[0] + 1:
                 instructions.append("Right")
                 instructions.append("Right")
                 local_orient = Orientation.EAST
             if next_y == curr_point[1] - 1:
+                print("WEST - RIGHT");
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Right")
                 local_orient = Orientation.NORTH
                 pivot = curr_point
             elif next_y == curr_point[1] + 1:
+                print("WEST - LEFT");
                 instructions.append(abs(next_x - pivot[0]))
                 instructions.append("Left")
                 local_orient = Orientation.SOUTH
@@ -211,8 +237,240 @@ def get_instructions(path):
     if local_orient == Orientation.EAST or local_orient == Orientation.WEST:
         instructions.append(abs(curr_point[0] - pivot[0]))
 
-
+    print(instructions)
     return instructions
+
+def limit_instructions(instructions):
+    if instructions == False:
+        return False
+    new_instructions = []
+    min_instruction = 5
+
+    for i in instructions:
+        if not type(i) == int:
+            new_instructions.append(i)
+        
+        else:
+            while i > min_instruction:
+                new_instructions.append(min_instruction)
+                i -= min_instruction
+            new_instructions.append(i)
+
+    return new_instructions
+
+# def get_instructions(path):
+#     print("inside get instructions")
+#     print("inst_path:" + str(path))
+#     if path == False:
+#         print("path is false")
+#         return False
+    
+#     curr_point = path[0]
+#     pivot = path[0]
+#     #local_orient = copy.deepcopy(settings.orientation)
+    
+#     #print("local_orient = " + str(local_orient))
+#     if settings.orientation == Orientation.NORTH:
+#         local_orient = Orientation.NORTH
+#     elif settings.orientation == Orientation.SOUTH:
+#         local_orient = Orientation.SOUTH
+#     elif settings.orientation == Orientation.EAST:
+#         local_orient = Orientation.EAST
+#     else:
+#         local_orient = Orientation.WEST
+#     instructions = []
+#     min_step = 3;
+
+
+
+
+#     for next_point in path[1:]:
+#         next_x = next_point[0]
+#         next_y = next_point[1]
+        
+#         print("inside fro loop")
+
+
+
+
+#         if local_orient == Orientation.NORTH:
+#             if next_y == curr_point[1] + 1:
+#                 instructions.append("Right")
+#                 instructions.append("Right")
+#                 local_orient = Orientation.SOUTH
+#             if next_x == curr_point[0] + 1:
+#                 distance = abs(next_y - pivot[1]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+
+
+#                 instructions.append("Right")
+#                 local_orient = Orientation.EAST
+#                 pivot = curr_point
+#             elif next_x == curr_point[0] - 1:
+#                 distance = abs(next_y - pivot[1]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+
+
+#                 instructions.append("Left")
+#                 local_orient = Orientation.WEST
+#                 pivot = curr_point
+
+
+
+
+#         elif local_orient == Orientation.SOUTH:
+#             print("Orientation is south")
+#             if next_y == curr_point[1] - 1:
+#                 print("A")
+#                 instructions.append("Right")
+#                 instructions.append("Right")
+#                 local_orient = Orientation.NORTH
+#             if next_x == curr_point[0] - 1:
+#                 print("B")
+#                 distance = abs(next_y - pivot[1]);
+#                 while not distance == 0:
+#                     print("inside while")
+#                     if distance > min_step:
+#                         print("distance > min_step")
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                         print(min_step)
+#                     print("adding distance")
+#                     instructions.append(distance)
+#                     print(distance)
+#                     distance = 0
+
+
+#                 instructions.append("Right")
+#                 local_orient = Orientation.WEST
+#                 pivot = curr_point
+#             elif next_x == curr_point[0] + 1:
+#                 print("C")
+#                 distance = abs(next_y - pivot[1]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+                        
+#                 instructions.append("Left")
+#                 local_orient = Orientation.EAST
+#                 pivot = curr_point
+
+
+
+
+#         elif local_orient == Orientation.EAST:
+#             if next_x == curr_point[0] - 1:
+#                 instructions.append("Right")
+#                 instructions.append("Right")
+#                 local_orient = Orientation.EAST
+#             if next_y == curr_point[1] - 1:
+#                 distance = abs(next_x - pivot[0]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+
+
+#                 instructions.append("Left")
+#                 local_orient = Orientation.NORTH
+#                 pivot = curr_point
+#             elif next_y == curr_point[1] + 1:
+#                 distance = abs(next_x - pivot[0]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+                
+#                 instructions.append("Right")
+#                 local_orient = Orientation.SOUTH
+#                 pivot = curr_point
+
+
+
+
+#         elif local_orient == Orientation.WEST:
+#             if next_x == curr_point[0] + 1:
+#                 instructions.append("Right")
+#                 instructions.append("Right")
+#                 local_orient = Orientation.EAST
+#             if next_y == curr_point[1] - 1:
+#                 distance = abs(next_x - pivot[0]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+
+
+#                 instructions.append("Right")
+#                 local_orient = Orientation.NORTH
+#                 pivot = curr_point
+#             elif next_y == curr_point[1] + 1:
+#                 distance = abs(next_x - pivot[0]);
+#                 while not distance == 0:
+#                     if distance > min_step:
+#                         instructions.append(min_step)
+#                         distance -= min_step
+#                     instructions.append(distance)
+#                     distance = 0
+
+
+#                 instructions.append("Left")
+#                 local_orient = Orientation.SOUTH
+#                 pivot = curr_point
+
+
+
+
+#         curr_point = next_point
+
+
+
+
+#     if local_orient == Orientation.NORTH or local_orient == Orientation.SOUTH:
+#         distance = abs(curr_point[1] - pivot[1]);
+#         while not distance == 0:
+#             if distance > min_step:
+#                 instructions.append(min_step)
+#                 distance -= min_step
+#             instructions.append(distance)
+#             distance = 0
+
+
+
+
+#     if local_orient == Orientation.EAST or local_orient == Orientation.WEST:
+#         distance = abs(curr_point[0] - pivot[0]);
+#         while not distance == 0:
+#             if distance > min_step:
+#                 instructions.append(min_step)
+#                 distance -= min_step
+#             instructions.append(distance)
+#             distance = 0
+
+
+
+
+#     return instructions
+
 
 def build_maze():
     maze = []
@@ -248,10 +506,10 @@ def main():
     print(path)
 
 
-    print(get_instructions(path, "East"))
+    print(get_instructions(path))
 
 
-    get_instructions(astar(maze, start, end, clearance), local_orient)
+    #get_instructions(astar(maze, start, end, clearance))
     
     # [(0, 8), 'Left', (8, 3)]
 
@@ -268,21 +526,23 @@ def test1():
             [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]]
 
 
-    start = (6, 7)
-    end = (0, 7)
+    start = (0, 0)
+    end = (9, 5)
 
 
     dimensions = (2, 2)
-    clearance = int(max(dimensions) / 2)
+    clearance = 0
     print(clearance)
     path = astar(maze, start, end, clearance)
     print(path)
+    
+    settings.orientation = Orientation.SOUTH;
 
 
-    print(get_instructions(path, "East"))
+    print(get_instructions(path))
 
 
-    get_instructions(astar(maze, start, end, clearance), local_orient)
+    # get_instructions(astar(maze, start, end, clearance), local_orient)
     
 if __name__ == '__main__':
-    main()
+    test1()

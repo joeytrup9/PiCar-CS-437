@@ -1,20 +1,26 @@
+from sre_parse import CATEGORIES
 import numpy as np
 from enum import Enum
 
 #general
+class Angles(Enum):
+    NORTH = 0
+    EAST = 90
+    SOUTH = 180
+    WEST = 240
 class Orientation(Enum):
     NORTH = 0
     SOUTH = 1
     EAST = 2
     WEST = 3
-N = 300
+N = 100
 pts = np.full((N,N), -1)
 car_x = 0
 car_y = 0
 angle = 0
 orientation = Orientation.NORTH
-dimensions = (20, 20)
-clearance = 3
+dimensions = (25, 25)
+clearance = 2
 im_count = 0
 
 #mapping
@@ -31,3 +37,8 @@ full_scan_active = False
 
 #printing
 output_dir = ''
+
+#detection
+detections = []
+CATEGORY_LIST = {'stop sign','person', 'traffic light', 'stop light', 'cone', 'traffic cone'}
+captures = 0
