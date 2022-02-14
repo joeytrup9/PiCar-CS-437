@@ -266,11 +266,11 @@ def single_full_scan():
 
 def turn_left90():
     fc.turn_left(10)
-    time.sleep(.7)
+    time.sleep(.65)
     fc.stop()
 def turn_right90():
     fc.turn_right(10)
-    time.sleep(.7)
+    time.sleep(.65)
     fc.stop()
 def trav_distance(distance:float, direction):
     m = .5

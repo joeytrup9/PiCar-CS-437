@@ -20,7 +20,7 @@ car_y = 0
 angle = 0
 orientation = Orientation.NORTH
 dimensions = (20, 20)
-clearance = 4
+clearance = 12
 im_count = 0
 
 #mapping
@@ -40,5 +40,5 @@ output_dir = ''
 
 #detection
 detections = []
-CATEGORY_LIST = {'stop sign','person', 'traffic light', 'stop light', 'cone', 'traffic cone'}
+CATEGORY_LIST = {'stop sign', 'traffic light', 'stop light', 'cone', 'traffic cone'}
 captures = 0

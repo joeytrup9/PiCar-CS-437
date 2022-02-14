@@ -79,7 +79,7 @@ class Core():
                 std = o['options']['std'][0]
         self.mean = mean
         self.std = std
-        self.score_threshold = .8
+        self.score_threshold = .3
         file_name = d.get_packed_associated_file_list()[0]
         label_map = d.get_associated_file_buffer(file_name).decode()
         self.lablist = list(filter(len,label_map.splitlines()))
@@ -129,7 +129,9 @@ class Core():
         results = sorted(results, key=lambda d:d[1],reverse=True)
         
         result_count = min(len(results), 3)
-        settings.detections = results[:result_count]
+        if  result_count > 0:
+            settings.detections.append(results[:result_count])
+        return results[:result_count]
 
 #t1 = Detector()
 
